@@ -1,0 +1,17 @@
+<h1>Song</h1>
+<%= form_for @song do |f| %>
+  <%= f.label :name %><br>
+  <%= f.text_field :name %><br>
+  <h3>Artist</h3>
+  <% @artists.each do |artist| %>
+    <label><%= artist.name %></label>
+    <%= radio_button(:song, :artist_id, artist.id) %><br>
+  <% end %>
+  <h3>Genre</h3>
+  <% @genres.each do |genre| %>
+    <label><%=genre.name%></label>
+    <%=radio_button(:song, :genre_id, genre.id)%><br>
+  <%end%>
+  
+  <%= f.submit %>
+<% end %> 
